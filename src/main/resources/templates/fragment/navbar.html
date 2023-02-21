@@ -1,0 +1,343 @@
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" th:fragment="navbar-menu">
+    <div class="app-brand demo">
+        <a th:href="@{/}" class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <img th:src="@{/img/favicon/logo.png}" alt="Kafile" src="../../static/img/favicon/logo.png"/>
+              </span>
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        <!-- Dashboard -->
+        <li class="menu-item" th:classappend="${activePage == 'home'} ? 'active' : ''">
+            <a th:href="@{/}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Ana Sayfa</div>
+            </a>
+        </li>
+
+        <!-- Layouts -->
+        <li class="menu-item" th:classappend="${activeToggle == 'layouts'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Layouts</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'without-menu'} ? 'active' : ''">
+                    <a th:href="@{/without-menu}" class="menu-link">
+                        <div data-i18n="Without menu">Without menu</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'without-navbar'} ? 'active' : ''">
+                    <a th:href="@{/without-navbar}" class="menu-link">
+                        <div data-i18n="Without navbar">Without navbar</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'container'} ? 'active' : ''">
+                    <a th:href="@{/container}" class="menu-link">
+                        <div data-i18n="Container">Container</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'fluid'} ? 'active' : ''">
+                    <a th:href="@{/fluid}" class="menu-link">
+                        <div data-i18n="Fluid">Fluid</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'blank'} ? 'active' : ''">
+                    <a th:href="@{/blank}" class="menu-link">
+                        <div data-i18n="Blank">Boş Sayfa</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Sayfalar</span>
+        </li>
+        <li class="menu-item" th:classappend="${activeToggle == 'account'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Hesap Ayarları</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'account'} ? 'active' : ''">
+                    <a th:href="@{/account}" class="menu-link">
+                        <div data-i18n="Account">Hesap</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'notifications'} ? 'active' : ''">
+                    <a th:href="@{/notifications}" class="menu-link">
+                        <div data-i18n="Notifications">Bildirimler</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'connections'} ? 'active' : ''">
+                    <a th:href="@{/connections}" class="menu-link">
+                        <div data-i18n="Connections">Bağlantılar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item" th:classappend="${activeToggle == 'auth'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Oturum Açma</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'login'} ? 'active' : ''">
+                    <a th:href="@{/login}" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Giriş Yap</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'register'} ? 'active' : ''">
+                    <a th:href="@{/register}" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Kayıt Ol</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'forgot-password'} ? 'active' : ''">
+                    <a th:href="@{/forgot-password}" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Şifremi Unuttum</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item" th:classappend="${activeToggle == 'misc'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Misc">Misc</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'error-page'} ? 'active' : ''">
+                    <a th:href="@{/error-page}" class="menu-link" target="_blank">
+                        <div data-i18n="Error">Hata</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'maintenance'} ? 'active' : ''">
+                    <a th:href="@{/maintenance}" class="menu-link" target="_blank">
+                        <div data-i18n="Under Maintenance">Bakım Modu</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Components -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
+        <!-- Cards -->
+        <li class="menu-item" th:classappend="${activePage == 'cards'} ? 'active' : ''">
+            <a th:href="@{/cards}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Cards</div>
+            </a>
+        </li>
+        <!-- User interface -->
+        <li class="menu-item" th:classappend="${activeToggle == 'ui'} ? 'active open' : ''">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="User interface">User interface</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'accordion'} ? 'active' : ''">
+                    <a th:href="@{/accordion}" class="menu-link">
+                        <div data-i18n="Accordion">Accordion</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'alerts'} ? 'active' : ''">
+                    <a th:href="@{/alerts}" class="menu-link">
+                        <div data-i18n="Alerts">Alerts</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'badges'} ? 'active' : ''">
+                    <a th:href="@{/badges}" class="menu-link">
+                        <div data-i18n="Badges">Badges</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'buttons'} ? 'active' : ''">
+                    <a th:href="@{/buttons}" class="menu-link">
+                        <div data-i18n="Buttons">Buttons</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'carousel'} ? 'active' : ''">
+                    <a th:href="@{/carousel}" class="menu-link">
+                        <div data-i18n="Carousel">Carousel</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'collapse'} ? 'active' : ''">
+                    <a th:href="@{/collapse}" class="menu-link">
+                        <div data-i18n="Collapse">Collapse</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'dropdowns'} ? 'active' : ''">
+                    <a th:href="@{/dropdowns}" class="menu-link">
+                        <div data-i18n="Dropdowns">Dropdowns</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'footer'} ? 'active' : ''">
+                    <a th:href="@{/footer}" class="menu-link">
+                        <div data-i18n="Footer">Footer</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'list-groups'} ? 'active' : ''">
+                    <a th:href="@{/list-groups}" class="menu-link">
+                        <div data-i18n="List Groups">List groups</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'modals'} ? 'active' : ''">
+                    <a th:href="@{/modals}" class="menu-link">
+                        <div data-i18n="Modals">Modals</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'navbar'} ? 'active' : ''">
+                    <a th:href="@{/navbar}" class="menu-link">
+                        <div data-i18n="Navbar">Navbar</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'offcanvas'} ? 'active' : ''">
+                    <a th:href="@{/offcanvas}" class="menu-link">
+                        <div data-i18n="Offcanvas">Offcanvas</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'pagination-breadcrumbs'} ? 'active' : ''">
+                    <a th:href="@{/pagination-breadcrumbs}" class="menu-link">
+                        <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'progress'} ? 'active' : ''">
+                    <a th:href="@{/progress}" class="menu-link">
+                        <div data-i18n="Progress">Progress</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'spinners'} ? 'active' : ''">
+                    <a th:href="@{/spinners}" class="menu-link">
+                        <div data-i18n="Spinners">Spinners</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'tabs-pills'} ? 'active' : ''">
+                    <a th:href="@{/tabs-pills}" class="menu-link">
+                        <div data-i18n="Tabs &amp; Pills">Tabs &amp; Pills</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'toasts'} ? 'active' : ''">
+                    <a th:href="@{/toasts}" class="menu-link">
+                        <div data-i18n="Toasts">Toasts</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'tooltips-popovers'} ? 'active' : ''">
+                    <a th:href="@{/tooltips-popovers}" class="menu-link">
+                        <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'typography'} ? 'active' : ''">
+                    <a th:href="@{/typography}" class="menu-link">
+                        <div data-i18n="Typography">Typography</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Extended components -->
+        <li class="menu-item" th:classappend="${activeToggle == 'extended-ui'} ? 'active open' : ''">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-copy"></i>
+                <div data-i18n="Extended UI">Extended UI</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'perfect-scrollbar'} ? 'active' : ''">
+                    <a th:href="@{/perfect-scrollbar}" class="menu-link">
+                        <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'text-divider'} ? 'active' : ''">
+                    <a th:href="@{/text-divider}" class="menu-link">
+                        <div data-i18n="Text Divider">Text Divider</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item" th:classappend="${activePage == 'boxicons'} ? 'active' : ''">
+            <a th:href="@{/boxicons}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-crown"></i>
+                <div data-i18n="Boxicons">Boxicons</div>
+            </a>
+        </li>
+
+        <!-- Forms & Tables -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li>
+        <!-- Forms -->
+        <li class="menu-item" th:classappend="${activeToggle == 'form-elements'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Elements">Form Elements</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'basic-inputs'} ? 'active' : ''">
+                    <a th:href="@{/basic-inputs}" class="menu-link">
+                        <div data-i18n="Basic Inputs">Basic Inputs</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'input-groups'} ? 'active' : ''">
+                    <a th:href="@{/input-groups}" class="menu-link">
+                        <div data-i18n="Input groups">Input groups</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item" th:classappend="${activeToggle == 'forms'} ? 'active open' : ''">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Layouts">Formlar</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item" th:classappend="${activePage == 'vertical-form'} ? 'active' : ''">
+                    <a th:href="@{/vertical-form}" class="menu-link">
+                        <div data-i18n="Vertical Form">Vertical Form</div>
+                    </a>
+                </li>
+                <li class="menu-item" th:classappend="${activePage == 'horizontal-form'} ? 'active' : ''">
+                    <a th:href="@{/horizontal-form}" class="menu-link">
+                        <div data-i18n="Horizontal Form">Horizontal Form</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Tables -->
+        <li class="menu-item" th:classappend="${activePage == 'tables'} ? 'active' : ''">
+            <a th:href="@{/tables}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="Tables">Tablolar</div>
+            </a>
+        </li>
+        <!-- Misc -->
+        <!--        <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>-->
+        <!--        <li class="menu-item">-->
+        <!--            <a-->
+        <!--                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"-->
+        <!--                    target="_blank"-->
+        <!--                    class="menu-link"-->
+        <!--            >-->
+        <!--                <i class="menu-icon tf-icons bx bx-support"></i>-->
+        <!--                <div data-i18n="Support">Support</div>-->
+        <!--            </a>-->
+        <!--        </li>-->
+        <!--        <li class="menu-item">-->
+        <!--            <a-->
+        <!--                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"-->
+        <!--                    target="_blank"-->
+        <!--                    class="menu-link"-->
+        <!--            >-->
+        <!--                <i class="menu-icon tf-icons bx bx-file"></i>-->
+        <!--                <div data-i18n="Documentation">Documentation</div>-->
+        <!--            </a>-->
+        <!--        </li>-->
+    </ul>
+</aside>
+</body>
+</html>
